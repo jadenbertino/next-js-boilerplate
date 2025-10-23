@@ -3,7 +3,6 @@ import { CLIENT_ENV } from './client'
 
 const ServerEnvSchema = z.object({
   // add server env vars here
-  DOPPLER_TOKEN: z.string(),
 })
 
 function validateServerEnv() {
