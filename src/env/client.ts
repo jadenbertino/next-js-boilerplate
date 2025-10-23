@@ -1,7 +1,9 @@
 import { z } from 'zod'
 
 const ClientEnvSchema = z.object({
-  NEXT_PUBLIC_ENVIRONMENT: z.enum(['development', 'staging', 'production']),
+  // TODO: Add client env vars here
+  // Must be prefixed with NEXT_PUBLIC_
+  // NEXT_PUBLIC_ENVIRONMENT: z.enum(['development', 'staging', 'production']),
 })
 type ClientEnvKey = keyof z.infer<typeof ClientEnvSchema>
 
@@ -26,9 +28,9 @@ function validateClientEnv() {
   }
 
   // strip the NEXT_PUBLIC_ prefix
-  const env = validation.data
+  // const env = validation.data
   return {
-    ENVIRONMENT: env.NEXT_PUBLIC_ENVIRONMENT,
+    // ENVIRONMENT: env.NEXT_PUBLIC_ENVIRONMENT,
   }
 }
 
