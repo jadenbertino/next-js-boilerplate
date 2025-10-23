@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "bash scripts/dev.sh",
     "build": "bash scripts/build.sh",
-    "start": "bash scripts/start.sh",
+    "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
