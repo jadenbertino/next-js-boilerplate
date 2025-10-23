@@ -8,6 +8,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
     // Emit
     "noEmit": true,
     "incremental": true,
