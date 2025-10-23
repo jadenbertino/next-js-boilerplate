@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "bash scripts/dev.sh",
+    "build": "bash scripts/build.sh",
+    "start": "bash scripts/start.sh",
     "lint": "eslint"
   },
   "dependencies": {
