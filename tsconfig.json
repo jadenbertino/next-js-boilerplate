@@ -1,18 +1,50 @@
 {
   "compilerOptions": {
+    // Language and Environment
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
+    "jsx": "react-jsx",
+
+    // Modules
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
+
+    // Emit
+    "noEmit": true,
     "incremental": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "outDir": "./dist",
+
+    // Interop Constraints
+    "esModuleInterop": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Type Checking - Strict Mode
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+
+    // Next.js
     "plugins": [
       {
         "name": "next"
@@ -20,7 +52,8 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "rootDir": "./src"
   },
   "include": [
     "next-env.d.ts",
