@@ -38,3 +38,9 @@ pnpm dev
 ```
 
 5. Push to staging environment
+
+## Additional Useful Tools
+
+- Component Library (e.g. shadcn/ui, tailwind plus, etc)
+- Tanstack Query
+- Sentry

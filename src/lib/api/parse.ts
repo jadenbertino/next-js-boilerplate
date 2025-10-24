@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server'
+import queryString from 'query-string'
 import { z } from 'zod'
 import { BadRequestError } from '../error'
 import { serialize } from '../logs/shared'
@@ -6,7 +7,7 @@ import { serialize } from '../logs/shared'
 /**
  * Parses the request body into a JSON object and validates it against a Zod schema
  */
-async function getRequestBody<T>(
+async function validateRequestBody<T>(
   req: NextRequest,
   schema: z.ZodType<T>,
 ): Promise<T> {
@@ -36,26 +37,31 @@ async function getRequestBody<T>(
   return validation.data
 }
 
-/*
+function validateQueryParams<T>({
+  req,
+  parseOptions,
+  schema,
+}: {
+  req: NextRequest
+  parseOptions?: queryString.ParseOptions
+  schema: z.ZodType<T>
+}): T {
+  // Convert query params to object
+  const params = req.nextUrl.searchParams.toString()
+  const parsedQueryParams = queryString.parse(params, parseOptions)
 
-function validateQueryParams<T extends z.ZodObject<any>>(
-  req: NextRequest,
-  schema: T,
-): z.infer<T> {
-  const parsedQueryParams = parseQueryParams(req.nextUrl.searchParams)
+  // Validate against zod schema
   const validation = schema.safeParse(parsedQueryParams)
   if (!validation.success) {
-    throw new UserError({
+    throw new BadRequestError({
       statusCode: 400,
       message: 'Invalid query parameters',
       details: {
-        error: validation.error.flatten(),
+        error: validation.error.message,
       },
     })
   }
   return validation.data
 }
 
-*/
-
-export { getRequestBody }
+export { validateRequestBody as getRequestBody, validateQueryParams }
