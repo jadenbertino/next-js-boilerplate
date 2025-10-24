@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/lib/misc'
+import { cn } from '@/lib/utils'
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import type { ReactNode } from 'react'
 import { CloseIcon } from './icons'
