@@ -16,7 +16,7 @@ export default {
     },
     messages: {
       missingHandleErrorsImport:
-        'API route handler files must import handleErrors from "@/lib/api/handleErrors"',
+        'API route handler files must import handleErrors from "@/lib/api/handleErrors" or "@/lib/api"',
     },
     schema: [],
   },
@@ -48,8 +48,9 @@ export default {
 
     return {
       ImportDeclaration(node) {
-        // Check if this is an import from '@/lib/api/handleErrors'
-        if (node.source.value === '@/lib/api/handleErrors') {
+        // Check if this is an import from '@/lib/api/handleErrors' or '@/lib/api'
+        const validSources = ['@/lib/api/handleErrors', '@/lib/api']
+        if (validSources.includes(node.source.value)) {
           // Check if 'handleErrors' is in the imported specifiers
           const hasHandleErrors = node.specifiers.some(
             (specifier) =>
