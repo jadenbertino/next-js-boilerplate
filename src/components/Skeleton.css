@@ -1,0 +1,3 @@
+.react-loading-skeleton::after {
+  animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+}
