@@ -1,8 +1,9 @@
 1. Clone the repo without git history
 
 ```bash
-git clone <repo_url>
-cd <repo_name>
+mkdir new_project
+cd new_project
+git clone git@github.com:jadenbertino/next-js-boilerplate.git .
 rm -rf .git
 git init
 git add .
