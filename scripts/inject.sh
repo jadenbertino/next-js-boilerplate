@@ -17,7 +17,7 @@ if [ ! command -v doppler &> /dev/null ]; then
 fi
 
 # Determine environment, throw if not set
-if [ -z "$ENVIRONMENT" ]; then
+if [ -z "${ENVIRONMENT:-}" ]; then
   echo "❌ ENVIRONMENT not set"
   exit 1
 fi
